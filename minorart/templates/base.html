@@ -10,7 +10,7 @@
     <!-- logo -->
     <link rel="icon" href="{% static 'static/images/logo/logo-footer.png' %}">
     <!-- fancyapps carousel -->
-    <link rel="stylesheet" href="{% static 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.thumbs.css' %}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.thumbs.css" />
     <!-- swiper css -->
     <link rel="stylesheet" href="{% static 'libraries/swiper/swiper.css' %}">
     <!-- font awesome -->
@@ -130,11 +130,11 @@
     <!-- fancyapps carousel -->
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.thumbs.umd.js"></script>
     <!-- swiper js -->
-    <script src="./libraries/swiper/swiper.js"></script>
+    <script src="{% static '/libraries/swiper/swiper.js' %}"></script>
     <!-- bootstrap js -->
-    <script src="./libraries/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static '/libraries/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js' %}"></script>
     <!-- my js -->
-    <script src="script.js"></script>
+    <script src="{% static 'script.js' %}"></script>
 </body>
 
 </html>
