@@ -11,8 +11,7 @@ import traceback
 from django.shortcuts import render, redirect
 import os
 from django.conf import settings
-
-
+from django.core.paginator import Paginator
 
 
 class HomeView(View):
@@ -74,13 +73,19 @@ class NewsDetailView(View):
 class ProductsView(View):
     def get(self, request):
         main = models.Main.objects.all()
-        product = models.Products.objects.all().order_by("-id")
-        
+        product_list = models.Products.objects.all().order_by("-id")  # Barcha dorilarni olish
+        per_page = 1  # Har bir sahifada faqat 1 ta mahsulot chiqadi
+        paginator = Paginator(product_list, per_page)
+
+        # Sahifa raqamini olish (foydalanuvchi URL'dan ?page=2 bo‘lsa)
+        page_number = request.GET.get("page", 1)  # Agar page bo‘lmasa, 1-sahifa chiqadi
+        products = paginator.get_page(page_number)  # Paginatsiyalangan dorilar
+
         context = {
             "main": main,
-            "product": product,
+            "products": products,  # Paginatsiyalangan mahsulotlar
         }
-        return render(request, 'products.html', context)
+        return render(request, "products.html", context)
 
 
 
@@ -89,7 +94,6 @@ class ProductDetailView(DetailView):
     slug_field = "slug"
     context_object_name = "object"
     template_name = "detail-page.html"
-    paginate_by = 16 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
