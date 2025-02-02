@@ -40,23 +40,22 @@
                 <div class="swiper-container swiperProducts">
                     <div class="swiper-wrapper">
                         <!-- 1 -->
+                        {% for item in product %}
+
                         <div class="swiper-slide">
                             <div class="card">
                                 <div class="img-box">
-                                    <img class="card-img-top" src="{% static 'images/swiper/bibikon.jpg' %}" alt="bibikon">
+                                    <img class="card-img-top" src="{{item.main_image.url}}" alt="bibikon">
                                 </div>
                                 <div class="card-body">
                                     <div class="text">
-                                        <h3>Bibikon-minokarnitin</h3>
-                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, culpa
-                                            maiores eum ducimus ratione impedit! Lorem ipsum dolor, sit amet consectetur
-                                            adipisicing elit. Rem commodi dolorem corporis non doloremque voluptas
-                                            consectetur voluptates, inventore iste. Rem cumque ducimus maiores libero?
-                                        </p>
+                                        <h3>{{item.name|safe}}</h3>
+                                        <p>{{item.description|safe}}</p>
                                     </div>
-                                    <a href="#">Batafsil</a>
+                                    <a href="{% url 'common:product-detail' item.slug %}">Batafsil</a>
                                 </div>
                             </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>

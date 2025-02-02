@@ -46,7 +46,7 @@ class Slider(models.Model):
 class Products(models.Model):
     name = models.CharField(_("Mahsulot nomi"), max_length=256)
     about = models.CharField(_("Mahsulot haqida"), max_length=256)
-    slug = models.SlugField(_("slug-name"), max_length=256)
+    slug = models.SlugField(_("url-name"),unique=True, max_length=256)
     description = models.TextField(_("description"))
     main_image = ResizedImageField(_("asosiy rasm"),  quality=95, crop=["middle", "center"], upload_to="products/%Y/%m")
     image_1 = ResizedImageField(_("rasm - 1"), blank=True, null=True , quality=95, crop=["middle", "center"], upload_to="products/%Y/%m")
@@ -56,7 +56,12 @@ class Products(models.Model):
     image_5 = ResizedImageField(_("rasm - 5"), blank=True, null=True ,quality=95, crop=["middle", "center"], upload_to="products/%Y/%m")
     is_top = models.BooleanField(_("project is top"), default=False)
     date = models.DateField(_("date"), default=timezone.now)
-    content = RichTextField(_("qo'llanishi va qo'shimcha ma'lumotlar"))
+    content = models.TextField(_("qo'llanishi va qo'shimcha ma'lumotlar"))
 
+    class Meta:
+        db_table = "Mahsulot"
+        verbose_name = _("Mahsulot")
+        verbose_name_plural = _("Mahsulotlar")
 
-
+    def __str__(self):
+        return f"{self.name}"
