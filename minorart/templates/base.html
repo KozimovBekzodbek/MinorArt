@@ -8,9 +8,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- logo -->
-    <link rel="icon" href="{% static 'static/images/logo/logo-footer.png' %}">
+    {% for item in main %}
+    <link rel="icon" href="{{item.icon.url}}">
+    {% endfor %}
     <!-- fancyapps carousel -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.thumbs.css" />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.thumbs.css" />-->
     <!-- swiper css -->
     <link rel="stylesheet" href="{% static 'libraries/swiper/swiper.css' %}">
     <!-- font awesome -->
@@ -41,30 +43,30 @@
     <meta name="twitter:site" content="https://minorart.uz">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="{% static 'https://minorart.uz/' %}">
-
 </head>
-
 <body>
     <!-- navbar -->
     <div id="navbar">
         <div class="container">
             <div class="navbar-content">
                 <!-- logo -->
+                {% for item in main %}
                 <div class="logo">
                     <a href="{% url 'common:home'%}">
-                        <img src="static/images/logo/logo.png" alt="Logo">
+                        <img src="{{ item.logo.url }}" alt="Logo">
                     </a>
                 </div>
+                {% endfor %}
                 <!-- menu / responsive menu -->
                 <div class="menu">
                     <ul>
                         <li class="d-lg-none"><a href="{% url 'common:home' %}">
-                                <img src="static/images/logo/logo.png" alt="minor art industry pharmaceutical"></a>
+                                <img src="{% static 'images/logo/logo.png' %}" alt="minor art industry pharmaceutical"></a>
                         </li>
-                        <li><a href="{% url 'common:home'%}">Bosh sahifa</a></li>
-                        <li><a href="products.html">Mahsulotlarimiz</a></li>
-                        <li><a href="about.html">Biz haqimizda</a></li>
-                        <li><a href="news.html">Yangiliklar</a></li>
+                        <li><a href="{% url 'common:home' %}">Bosh sahifa</a></li>
+                        <li><a href="{% url 'common:products' %}">Mahsulotlarimiz</a></li>
+                        <li><a href="{% url 'common:about-us' %}">Biz haqimizda</a></li>
+                        <li><a href="{% url 'common:news' %}">Yangiliklar</a></li>
                         <!-- closer -->
                         <i class="closer-menu d-lg-none fa fa-times fa-2x"></i>
                     </ul>
@@ -85,6 +87,7 @@
 {% endblock %}
 
 
+    {% for item in main %}
     <!-- footer -->
     <footer id="footer">
         <div class="container">
@@ -92,20 +95,18 @@
                 <!-- 1 -->
                 <div class="col-12 col-md-6">
                     <a href="{% url 'common:home' %}">
-                        <img src="static/images/logo/logo-white.png" alt="minor art industry">
+                        <img src="{{item.logo_footer.url}}" alt="minor art industry">
                     </a>
-                    <p>"Minor Art Industry Pharmaceutical" MCHJ.</p>
-                    <p>O'zbekiston Respublikasi</p>
-                    <p>Andijon viloyati Andijon shahar</p>
-                    <p>Sanoat ko'chasi 239-uy.</p>
+                    <p>{{item.company_name|safe}}</p>
+                    <p>{{item.location|safe}}</p>
                 </div>
                 <div class="col-12 col-md-6">
                     <ul class="mt-4 mt-md-0 justify-content-md-end">
-                        <li><a href="#"><i class="fab fa-telegram"></i></a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                        <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                        <li><a href="https://telegram.org/{{item.telegram}}"><i class="fab fa-telegram"></i></a></li>
+                        <li><a href="https://instagram.com/{{item.instagram}}"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="https://instagram.com/{{item.facebook}}"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="https://instagram.com/{{item.youtube}}"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="https://instagram.com/{{item.linkedin}}"><i class="fab fa-linkedin"></i></a></li>
                     </ul>
                     <div class="text-md-end mt-2">
                         <p>Barcha huquqlar himoyalangan.</p>
@@ -116,6 +117,8 @@
         </div>
     </footer>
 
+
+    {% endfor %}
 
 
 

@@ -12,7 +12,7 @@
                 <div class="col-12 col-lg-6">
                     <div class="left-side">
                         <div class="top">
-                            <img src="static/images/news/l-karmin.jpg" alt="minor art industry pharmaceutical">
+                            <img src="{% static 'images/news/l-karmin.jpg' %}" alt="minor art industry pharmaceutical">
                         </div>
                         <div class="bottom">
                             <!-- swiper -->
@@ -21,27 +21,27 @@
                                     <!-- 1 -->
                                     <div class="swiper-slide">
                                         <div class="slide-box">
-                                            <img src="static/images/news/l-karmin.jpg" alt="minor art industry pharmaceutical">
+                                            <img src="{% static 'images/news/l-karmin.jpg' %}" alt="minor art industry pharmaceutical">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="slide-box">
-                                            <img src="static/images/news/lactodox.jpg" alt="minor art industry pharmaceutical">
+                                            <img src="{% static 'images/news/lactodox.jpg' %}" alt="minor art industry pharmaceutical">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="slide-box">
-                                            <img src="static/images/news/magniy-b6-minor-tablets.jpg" alt="minor art industry pharmaceutical">
+                                            <img src="{% static 'images/news/magniy-b6-minor-tablets.jpg' %}" alt="minor art industry pharmaceutical">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="slide-box">
-                                            <img src="static/images/news/magniy-b6-minor.jpg" alt="minor art industry pharmaceutical">
+                                            <img src="{% static 'images/news/magniy-b6-minor.jpg' %}" alt="minor art industry pharmaceutical">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="slide-box">
-                                            <img src="static/images/news/magniy-biolayt.jpg" alt="minor art industry pharmaceutical">
+                                            <img src="{% static 'images/news/magniy-biolayt.jpg' %}" alt="minor art industry pharmaceutical">
                                         </div>
                                     </div>
                                 </div>
@@ -132,7 +132,7 @@
                         <div class="swiper-slide">
                             <div class="card">
                                 <div class="img-box">
-                                    <img class="card-img-top" src="static/images/swiper/bibikon.jpg" alt="bibikon">
+                                    <img class="card-img-top" src="{% static 'images/swiper/bibikon.jpg' %}" alt="bibikon">
                                 </div>
                                 <div class="card-body">
                                     <div class="text">
@@ -151,7 +151,7 @@
                         <div class="swiper-slide">
                             <div class="card">
                                 <div class="img-box">
-                                    <img class="card-img-top" src="static/images/swiper/bibikon.jpg" alt="bibikon">
+                                    <img class="card-img-top" src="{% static 'images/swiper/bibikon.jpg' %}" alt="bibikon">
                                 </div>
                                 <div class="card-body">
                                     <div class="text">
@@ -170,7 +170,7 @@
                         <div class="swiper-slide">
                             <div class="card">
                                 <div class="img-box">
-                                    <img class="card-img-top" src="static/images/swiper/bibikon.jpg" alt="bibikon">
+                                    <img class="card-img-top" src="{% static 'images/swiper/bibikon.jpg' %}" alt="bibikon">
                                 </div>
                                 <div class="card-body">
                                     <div class="text">
@@ -189,7 +189,7 @@
                         <div class="swiper-slide">
                             <div class="card">
                                 <div class="img-box">
-                                    <img class="card-img-top" src="static/images/swiper/bibikon.jpg" alt="bibikon">
+                                    <img class="card-img-top" src="{% static 'images/swiper/bibikon.jpg' %}" alt="bibikon">
                                 </div>
                                 <div class="card-body">
                                     <div class="text">
@@ -208,7 +208,7 @@
                         <div class="swiper-slide">
                             <div class="card">
                                 <div class="img-box">
-                                    <img class="card-img-top" src="static/images/swiper/bibikon.jpg" alt="bibikon">
+                                    <img class="card-img-top" src="{% static 'images/swiper/bibikon.jpg' %}" alt="bibikon">
                                 </div>
                                 <div class="card-body">
                                     <div class="text">
@@ -229,7 +229,7 @@
             </div>
             <!-- button -->
             <div class="text-end mt-5">
-                <a class="button-1" href="products.html">Barchasini ko'rish</a>
+                <a class="button-1" href="{% url 'common:products' %}">Barchasini ko'rish</a>
             </div>
             <!-- button end -->
         </div>

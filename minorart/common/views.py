@@ -14,13 +14,62 @@ from django.conf import settings
 
 
 
-class HomeView(View):
-    def get(self, request):
-        return render(request, "index.html")
-
-
-
 
 class HomeView(View):
     def get(self, request):
-        return render(request, "index.html")
+        main = models.Main.objects.all()
+        slider = models.Slider.objects.all()
+        
+        context = {
+            "main": main,
+            "slider": slider,
+        }
+
+        return render(request, "index.html", context)
+
+class AboutView(View):
+    def get(self, request):
+        main = models.Main.objects.all()
+        
+        context = {
+            "main": main,
+        }
+        return render(request, "about.html", context)
+
+class NewsView(View):
+    def get(self, request):
+        main = models.Main.objects.all()
+        
+        context = {
+            "main": main,
+        }
+        return render(request, "news.html", context)
+
+class NewsDetailView(View):
+    def get(self, request):
+        main = models.Main.objects.all()
+        
+        context = {
+            "main": main,
+        }
+        return render(request, "news-detail.html", context)
+
+class ProductsView(View):
+    def get(self, request):
+        main = models.Main.objects.all()
+        
+        context = {
+            "main": main,
+        }
+        return render(request, 'products.html', context)
+
+class ProductDetailView(View):
+    def get(self, request):
+        main = models.Main.objects.all()
+        
+        context = {
+            "main": main,
+        }
+        return render(request, 'detail-page.html', context)
+
+
