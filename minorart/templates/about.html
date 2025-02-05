@@ -7,61 +7,15 @@
     <div id="about-page-content">
         <div class="container">
 
+            {% for item in about %}
             <div class="box">
-                <img src="{% static 'images/carousel/drug-carousel-1.jpg' %}" class="w-100"
+                <img src="{{item.large_image.url}}" class="w-100"
                     alt="minor art industry pharmaceutical minorart">
                 <div class="text">
-                    <p><span>Minor Art Industry pharmaceutical</span> kompaniyasi 2019 yilda tashkil etilgan bo’lib,
-                        O’zbekiston
-                        davlatining farmasevtika bozoridagi jadal ravishda rivojlanayotgan kompaniyalardan biri
-                        hisoblanadi. <br> <br>
-
-                        Minor Art Industry pharmaceutical biologik faol qo’shimchalar (BFQ) ishlab chiqarishda mahalliy
-                        farmatsevtika va nutritsevtika bozorining yetakchilaridan biri hisoblanib, iste’molchilarning
-                        sog’lig’i va talablariga javob beradigan zamonaviy, sifatli va arzon ozuqaviy qo’shimchalarni
-                        yetkazib berishda faol hizmat ko’rsatib kelmoqda. ISO 22000 va ISO 9001 (International
-                        Organization
-                        for Standardization – Xalqaro Standartlashtirish Tashkiloti) standartlari esa Kompaniya uchun
-                        keng
-                        qamrovda yuqori sifatli biologik faol qo’shimchalar ishlab chiqarish imkonini bermoqda. <br>
-                        <br>
-
-                        Kompaniya mukammal texnologik yechimlarni hal qilishda ushbu sohaning xalqaro «innovatorlari»
-                        bilan
-                        hamkorlik qilish bilan bir qatorda, ularning sohaga oid zamonaviy texnologiyalarini
-                        O’zbekistonda
-                        farmatsevtika sanoatini rivojlantirish maqsadida o’zining ishlab chiqarish liniyasiga joriy
-                        qilib
-                        kelmoqda.<br> <br>
-
-                        Kompaniyaning ishlab chiqarish muassasalari Andijon viloyatining Andijon shahrida joylashgan
-                        bo’lib,
-                        2023 yilda ushbu maskanlarda mamlakatimizdagi mahalliy ishlab chiqaruvchilar tomonidan ishlab
-                        chiqarilmayotgan hamda O’zbekiston hududida xorijiy kompaniyalarning patentlari bilan
-                        himoyalanmagan
-                        eng muhim ozuqaviy nutritsevtik darmonlar, jumladan, zarur ozuqaviy qo’shimchalarni keng
-                        qamrovda
-                        ishlab chiqarish rejalashtirilmoqda.<br> <br>
-
-                        Minor Art Industry pharmaceutical sifatli hamda samarali davolashni ta’minlovchi zamonaviy
-                        biologik
-                        faol qo’shimchalarning keng turini taklif etadi. Bugungi kunda Minor Art Industry
-                        pharmaceuticalning
-                        mahsulot portfeli 40ga yaqin bio-qo’shimchalardan iborat bo’lib, mahsulotlar O’zbekistonning
-                        barcha
-                        hududlarida taqdim etilgan.<br> <br>
-
-                        BIZNING VAZIFAMIZ – insonlarni yanada sog’lomroq yashashlari uchun innovatsion bio-faol
-                        mahsulotlarini taklif qilish hamda halollik, innovatsiya, mas’uliyat, tezlik, jamoaviy mehnat va
-                        maqsad orqali mahsulotlarimizni foydali va bezarar qilishdir.<br> <br>
-
-                        BIZNING MAQSADIMIZ – xalqlar tabobatida yetuk olimlarning sir saqlangan yoki unutib qo’yilgan
-                        darmonlarini qayta tiklash hamda zamonaviy va ilg’or texnikalar yordamida ularni yuqori aniqlik
-                        ila
-                        qayta jonlantirishdir.
-                    </p>
+                    <p>{{item.description|safe|linebreaks}}</p>
                 </div>
             </div>
+            {% endfor %}
 
 
         </div>

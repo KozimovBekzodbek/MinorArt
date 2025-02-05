@@ -27,7 +27,6 @@ class Main(models.Model):
 
 
 
-
 class Slider(models.Model):
     image =models.FileField(_("header slider"),upload_to="icon/%Y/%m")
     title = models.CharField(_("Sarlavha"), max_length = 256)
@@ -54,7 +53,7 @@ class Products(models.Model):
     image_3 = ResizedImageField(_("rasm - 3"), blank=True, null=True ,quality=95, crop=["middle", "center"], upload_to="products/%Y/%m")
     image_4 = ResizedImageField(_("rasm - 4") ,blank=True, null=True , quality=95, crop=["middle", "center"], upload_to="products/%Y/%m")
     image_5 = ResizedImageField(_("rasm - 5"), blank=True, null=True ,quality=95, crop=["middle", "center"], upload_to="products/%Y/%m")
-    is_top = models.BooleanField(_("project is top"), default=False)
+    is_top = models.BooleanField(_("Asosiy pageda tursinmi"), default=False)
     date = models.DateField(_("date"), default=timezone.now)
     content = models.TextField(_("qo'llanishi va qo'shimcha ma'lumotlar"))
 
@@ -65,3 +64,59 @@ class Products(models.Model):
 
     def __str__(self):
         return f"{self.name}"
+
+
+
+
+class AboutUs(models.Model):
+    title = models.CharField(_("Sarlavha"),max_length=256)
+    main_description = models.TextField(_("asosiy page uchun ma'lumot"))
+    description = models.TextField(_("Biz haqimizda page uchun ma'lumot"))
+    small_image = models.FileField(_("asosiy page uchun rasm"))
+    large_image = models.FileField(_("Biz haqimizda page uchun rasm"))
+
+    
+    class Meta:
+        db_table = "BizHaqimizda"
+        verbose_name = _("BizHaqimizda")
+        verbose_name_plural = _("BizHaqimizda")
+
+    def __str__(self):
+        return f"{self.title}"
+
+
+class YesNo(models.TextChoices):
+    Yes = "o'ng", ("o'ng")
+    No = "chap", ("chap")
+
+
+
+
+class News(models.Model):
+    name = models.CharField(_("Yangilik nomi"),max_length=256)
+    title = models.TextField(_("Sarlavha"))
+    about = models.TextField(_("Qisqacha ma'lumot"))
+    usage = models.TextField(_("Qo'llanishi va boshqa ma'lumotlar"))
+    slug = models.SlugField(_("url-name"),unique=True, max_length=256)
+    is_top = models.BooleanField(_("Asosiy pageda tursinmi"), default=False)
+    side = models.CharField(_("qaysi tomonda tursin"),max_length=256,choices=YesNo.choices)
+    date = models.DateField(_("date"), default=timezone.now)
+    main_image = ResizedImageField(_("asosiy rasm"),  quality=95, crop=["middle", "center"], upload_to="products/%Y/%m")
+    image_1 = ResizedImageField(_("rasm - 1"), blank=True, null=True , quality=95, crop=["middle", "center"], upload_to="products/%Y/%m")
+    image_2 = ResizedImageField(_("rasm - 2"), blank=True, null=True , quality=95, crop=["middle", "center"], upload_to="products/%Y/%m")
+    image_3 = ResizedImageField(_("rasm - 3"), blank=True, null=True ,quality=95, crop=["middle", "center"], upload_to="products/%Y/%m")
+    image_4 = ResizedImageField(_("rasm - 4") ,blank=True, null=True , quality=95, crop=["middle", "center"], upload_to="products/%Y/%m")
+    image_5 = ResizedImageField(_("rasm - 5"), blank=True, null=True ,quality=95, crop=["middle", "center"], upload_to="products/%Y/%m")
+
+
+    class Meta:
+        db_table = "Yangiliklar"
+        verbose_name = _("Yangiliklar")
+        verbose_name_plural = _("Yangiliklar")
+
+    def __str__(self):
+        return f"{self.name}"
+
+
+
+

@@ -19,11 +19,15 @@ class HomeView(View):
         main = models.Main.objects.all()
         slider = models.Slider.objects.all()
         product = models.Products.objects.filter(is_top=True).order_by("-id")
-        
+        news = models.News.objects.filter(is_top=True).order_by("-id")
+        about = models.AboutUs.objects.all()
+
         context = {
             "main": main,
             "slider": slider,
             "product": product,
+            "about": about,
+            "news": news,
         }
 
         return render(request, "index.html", context)
@@ -34,9 +38,11 @@ class HomeView(View):
 class AboutView(View):
     def get(self, request):
         main = models.Main.objects.all()
+        about = models.AboutUs.objects.all()
         
         context = {
             "main": main,
+            "about": about,
         }
         return render(request, "about.html", context)
 
@@ -46,27 +52,29 @@ class AboutView(View):
 class NewsView(View):
     def get(self, request):
         main = models.Main.objects.all()
+        left = models.News.objects.all().filter(side="chap")
+        right = models.News.objects.all().filter(side="o'ng")
         
         context = {
             "main": main,
+            "left": left,
+            "right": right,
         }
         return render(request, "news.html", context)
 
 
 
+class NewsDetailView(DetailView):
+    queryset = models.News.objects.all()
+    slug_field = "slug"
+    context_object_name = "object"
+    template_name = "news-detail.html"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
 
+        context["related_products"] = models.News.objects.filter(is_top=True)
 
-
-class NewsDetailView(View):
-    def get(self, request):
-        main = models.Main.objects.all()
-        
-        context = {
-            "main": main,
-        }
-        return render(request, "news-detail.html", context)
-
-
+        return context
 
 
 

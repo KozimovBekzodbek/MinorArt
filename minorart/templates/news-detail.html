@@ -15,7 +15,7 @@
                 <div class="col-12 col-lg-6">
                     <div class="left-side">
                         <div class="top">
-                            <img src="{% static 'images/news/l-karmin.jpg' %}" alt="minor art industry pharmaceutical">
+                            <img src="{{object.main_image.url}}" alt="minor art industry pharmaceutical">
                         </div>
                         <div class="bottom">
                             <!-- swiper -->
@@ -24,27 +24,27 @@
                                     <!-- 1 -->
                                     <div class="swiper-slide">
                                         <div class="slide-box">
-                                            <img src="{% static 'images/news/l-karmin.jpg' %}" alt="minor art industry pharmaceutical">
+                                            <img src="{{object.image_1.url}}" alt="minor art industry pharmaceutical">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="slide-box">
-                                            <img src="{% static 'images/news/lactodox.jpg' %}" alt="minor art industry pharmaceutical">
+                                            <img src="{{object.image_2.url}}" alt="minor art industry pharmaceutical">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="slide-box">
-                                            <img src="{% static 'images/news/magniy-b6-minor-tablets.jpg' %}" alt="minor art industry pharmaceutical">
+                                            <img src="{{object.image_3.url}}" alt="minor art industry pharmaceutical">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="slide-box">
-                                            <img src="{% static 'images/news/magniy-b6-minor.jpg' %}" alt="minor art industry pharmaceutical">
+                                            <img src="{{object.image_4.url}}" alt="minor art industry pharmaceutical">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="slide-box">
-                                            <img src="{% static 'images/news/magniy-biolayt.jpg' %}" alt="minor art industry pharmaceutical">
+                                            <img src="{{object.image_5.url}}" alt="minor art industry pharmaceutical">
                                         </div>
                                     </div>
                                 </div>
@@ -56,60 +56,15 @@
                 <!-- right-side -->
                 <div class="col-12 col-lg-6">
                     <div class="right-side">
-                        <h1 class="h1 mt-4 mt-lg-0">L-karmin kapsulasi qadoqdan chiqdi</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, necessitatibus
-                            corrupti, vel possimus nulla velit ducimus delectus inventore deserunt harum commodi, nam
-                            accusamus quia numquam.</p>
+                        <h1 class="h1 mt-4 mt-lg-0">{{object.title|safe|linebreaks}}</h1>
+                        <p>{{object.about|safe|linebreaks}}</p>
                     </div>
                 </div>
 
                 <!-- bottom -->
                 <div class="col-12">
                     <div class="detail-text mt-4">
-                        <p> <b>QO‘LLANILISHI</b>
-                            <br>
-                            Regeneratsiya jarayonini tezlashtiradi;
-                            Og‘riq qoldiruvchi va yallig‘lanishga qarshi vosita;
-                            Bo‘g‘imlar faoliyatini yaxshilaydi;
-                            Medikamentoz terapiyaning zararli ta’sirlaridan tog‘ay to‘qimalarini himoya qiladi;
-                            Artroz;
-                            Artrit;
-                            Osteoxondroz;
-                            Spondilez;
-                            Mushak – skelet tizimining xar xil degenerativ – distrofik kasalliklarida.
-
-                            <br><br>
-                            <b>QO‘LLASH USULI VA DOZALARI</b>
-                            <br>
-                            Davolanish muddati va preparat mikdori, davolovchi vrach tomonidan har bir bemorga yakka
-                            tartibda belgilanadi.
-                            <br>
-                            Birinchi 3 hafta mobaynida: 1 kapsuladan 2 maxal kuniga, 4 chi xaftadan 1 kapsuladan 1 maxal
-                            kuniga.
-                            <br>
-                            Davolanish kursi davomiyligi, odatda 3 oydan 6 oygacha.
-                            <br>
-                            Davoni o‘zaytirishning har qanday holatida mutaxasis maslahati kerak bo‘ladi.
-
-
-                            <br><br>
-                            <b>QO‘LLASH MUMKIN BO‘LMAGAN HOLATLAR</b>
-                            <br>
-                            Homiladorlik va emizikli davrda.
-                            12 yoshgacha bo‘lgan bolalar.
-                            Tromboflebitlar va qon uvishishi me’yorining bo‘zilishlarida
-                            Qandli diabet.
-                            Bo‘yrak va jigar yetishmovchiligi bilan kechadigan og‘ir xastaliklar.
-                            Yakka tartibdagi yuqori sezuvchanlik.
-
-                            <br><br>
-                            <b> SAQLASH SHAROITI VA YAROQLILIK MUDDATI</b>
-                            <br>
-                            Preparat bolalar qo‘li yetmaydigan, yorug‘likdan himoyalangan joyda +25°C gacha haroratda
-                            saqlanishi lozim.
-                            <br>
-                            <b>Saqlanish muddati – 24 oy.</b>
-                        </p>
+                        <p>{{object.usage|safe|linebreaks}}</p>
                     </div>
                 </div>
             </div>
@@ -132,107 +87,31 @@
                 <div class="swiper-container swiperProducts">
                     <div class="swiper-wrapper">
                         <!-- 1 -->
+                        {% for item in related_products %}
                         <div class="swiper-slide">
                             <div class="card">
                                 <div class="img-box">
-                                    <img class="card-img-top" src="{% static 'images/swiper/bibikon.jpg' %}" alt="bibikon">
+                                    <img class="card-img-top" src="{{item.main_image.url}}" alt="bibikon">
                                 </div>
                                 <div class="card-body">
                                     <div class="text">
-                                        <h3>Bibikon-minokarnitin</h3>
-                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, culpa
-                                            maiores eum ducimus ratione impedit! Lorem ipsum dolor, sit amet consectetur
-                                            adipisicing elit. Rem commodi dolorem corporis non doloremque voluptas
-                                            consectetur voluptates, inventore iste. Rem cumque ducimus maiores libero?
-                                        </p>
+                                        <h3>{{item.name}}</h3>
+                                        <p>{{item.about}}</p>
                                     </div>
-                                    <a href="#">Batafsil</a>
+                                    <a href="{% url 'common:news-detail' item.slug %}">Batafsil</a>
                                 </div>
                             </div>
                         </div>
-                        <!-- 1 -->
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <div class="img-box">
-                                    <img class="card-img-top" src="{% static 'images/swiper/bibikon.jpg' %}" alt="bibikon">
-                                </div>
-                                <div class="card-body">
-                                    <div class="text">
-                                        <h3>Bibikon-minokarnitin</h3>
-                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, culpa
-                                            maiores eum ducimus ratione impedit! Lorem ipsum dolor, sit amet consectetur
-                                            adipisicing elit. Rem commodi dolorem corporis non doloremque voluptas
-                                            consectetur voluptates, inventore iste. Rem cumque ducimus maiores libero?
-                                        </p>
-                                    </div>
-                                    <a href="#">Batafsil</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 1 -->
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <div class="img-box">
-                                    <img class="card-img-top" src="{% static 'images/swiper/bibikon.jpg' %}" alt="bibikon">
-                                </div>
-                                <div class="card-body">
-                                    <div class="text">
-                                        <h3>Bibikon-minokarnitin</h3>
-                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, culpa
-                                            maiores eum ducimus ratione impedit! Lorem ipsum dolor, sit amet consectetur
-                                            adipisicing elit. Rem commodi dolorem corporis non doloremque voluptas
-                                            consectetur voluptates, inventore iste. Rem cumque ducimus maiores libero?
-                                        </p>
-                                    </div>
-                                    <a href="#">Batafsil</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 1 -->
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <div class="img-box">
-                                    <img class="card-img-top" src="{% static 'images/swiper/bibikon.jpg' %}" alt="bibikon">
-                                </div>
-                                <div class="card-body">
-                                    <div class="text">
-                                        <h3>Bibikon-minokarnitin</h3>
-                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, culpa
-                                            maiores eum ducimus ratione impedit! Lorem ipsum dolor, sit amet consectetur
-                                            adipisicing elit. Rem commodi dolorem corporis non doloremque voluptas
-                                            consectetur voluptates, inventore iste. Rem cumque ducimus maiores libero?
-                                        </p>
-                                    </div>
-                                    <a href="#">Batafsil</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 1 -->
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <div class="img-box">
-                                    <img class="card-img-top" src="{% static 'images/swiper/bibikon.jpg' %}" alt="bibikon">
-                                </div>
-                                <div class="card-body">
-                                    <div class="text">
-                                        <h3>Bibikon-minokarnitin</h3>
-                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, culpa
-                                            maiores eum ducimus ratione impedit! Lorem ipsum dolor, sit amet consectetur
-                                            adipisicing elit. Rem commodi dolorem corporis non doloremque voluptas
-                                            consectetur voluptates, inventore iste. Rem cumque ducimus maiores libero?
-                                        </p>
-                                    </div>
-                                    <a href="news-detail.html">Batafsil</a>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
+
+
                     </div>
                 </div>
                 <!-- swiper end -->
             </div>
             <!-- button -->
             <div class="text-end mt-5">
-                <a class="button-1" href="news.html">Barchasini ko'rish</a>
+                <a class="button-1" href="{% url 'common:news' %}">Barchasini ko'rish</a>
             </div>
             <!-- button end -->
         </div>
