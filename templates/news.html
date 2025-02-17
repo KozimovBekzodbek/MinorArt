@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- news-page-content -->
+    <div id="news-page-content">
+        <div class="container">
+            <!-- content -->
+            <div class="row gy-5">
+
+                <!-- 1, left-side -->
+                <div class="col-12 col-xl-7">
+                    <!-- left -->
+                    <div class="row gy-5">
+                        <!-- 1.1 -->
+                {% for item in left %}
+                    <div class="col-12 col-sm-6">
+                        <a href="{% url 'common:news-detail' item.slug %}">
+                            <div class="one-card">
+                                <img class="w-100" src="{{item.main_image.url}}"
+                                    alt="minor art industry pharmaceutical">
+                                <div class="one-card-body">
+                                    <h3>{{item.about}}</h3>
+                                    <span class="sana">{{item.date}}</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                    </div>
+                </div>
+
+                <!-- 2, right-side -->
+                <div class="col-12 col-xl-5">
+                    <!-- right -->
+                    <div class="many-cards">
+                        <div class="row">
+                          {% for item in right %}
+                            <div class="col-12 col-lg-6 col-xl-12">
+                                <!-- 2 -->
+                                    <a href="{% url 'common:news-detail' item.slug %}">
+                                        <div class="box">
+                                            <div class="img-box">
+                                                <img class="" src="{{item.main_image.url}}"
+                                                    alt="minor art industry pharmaceutical">
+                                            </div>
+                                            <div class="text-box">
+                                                <h3>{{item.about}}</h3>
+                                                <p class="sana">{{item.date}}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                            </div>
+                          {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

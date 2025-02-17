@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+    <!-- detail-page-content -->
+    <div id="detail-page-content">
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <!-- left-side -->
+                <div class="col-12 col-lg-6">
+                    <div class="left-side">
+                        <div class="top">
+                            <img src="{{object.main_image.url}}" alt="minor art industry pharmaceutical">
+                        </div>
+                        <div class="bottom">
+                            <!-- swiper -->
+                            <div class="swiper detailSwiper">
+                                <div class="swiper-wrapper">
+                                    {% for image in product_images %}
+                                          <div class="swiper-slide">
+                                               <div class="slide-box">
+                                                    <img src="{{image.image.url}}" alt="minor art industry pharmaceutical">
+                                               </div>
+                                          </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <!-- swiper end -->
+                        </div>
+                    </div>
+                </div>
+                <!-- right-side -->
+                <div class="col-12 col-lg-6">
+                    <div class="right-side">
+                        <h1 class="h1 mt-4 mt-lg-0">{{object.name}}</h1>
+                        <p>{{object.description|safe|linebreaks}}</p>
+                    </div>
+                </div>
+
+                <!-- bottom -->
+                <div class="col-12">
+                    <div class="detail-text mt-4">
+                        <p>{{object.content|safe}}</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+    <!-- Products -->
+    <div id="products">
+        <div class="container">
+            <!-- title -->
+            <h2>Boshqa Mahsulotlarimiz</h2>
+            <!-- content -->
+            <div class="products-content">
+                <!-- swiper -->
+                <div class="swiper-container swiperProducts">
+                    <div class="swiper-wrapper">
+
+                        {% for item in related_products %}
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <div class="img-box">
+                                    <img class="card-img-top" src="{{item.main_image.url}}" alt="bibikon">
+                                </div>
+                                <div class="card-body">
+                                    <div class="text">
+                                        <h3>{{item.name|safe}}</h3>
+                                        <p>{{item.description|safe}}</p>
+                                    </div>
+                                    <a href="{% url 'common:product-detail' item.slug %}">Batafsil</a>
+                                </div>
+                            </div>
+                        </div>
+                            {% endfor %}
+                    </div>
+                </div>
+                <!-- swiper end -->
+            </div>
+            <!-- button -->
+            <div class="text-end mt-5">
+                <a class="button-1" href="{% url 'common:products' %}">Barchasini ko'rish</a>
+            </div>
+            <!-- button end -->
+        </div>
+    </div>
+
+
+
+
+    {% endblock %}

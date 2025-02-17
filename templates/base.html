@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- logo -->
+    {% for item in main %}
+    <link rel="icon" href="{{item.icon.url}}">
+    {% endfor %}
+    <!-- fancyapps carousel -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.thumbs.css" />-->
+    <!-- swiper css -->
+    <link rel="stylesheet" href="{% static 'libraries/swiper/swiper.css' %}">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="{% static 'libraries/fontawesome-free-6.6.0-web/css/all.min.css' %}">
+    <!-- line icons -->
+    <link rel="stylesheet" href="{% static 'libraries/lineicons/lineicons.css' %}">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="{% static 'libraries/bootstrap-5.3.3-dist/css/bootstrap.min.css' %}">
+    <!-- css -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <!-- title -->
+    <title>Minor Art Industry Pharmacutical – San'at va sifat uyg‘unligi!</title>
+    <!-- description -->
+    <meta name="description" content="Minor Art Industry Pharmacutical kompaniyasi tomonidan ishlab chiqarilgan yuqori sifatli mahsulotlar. Mahsulotlarimiz haqida batafsil ma’lumot oling!">
+    <!-- facebook, instagram, linkedin -->
+    <meta property="og:title" content="Minor Art Industry Pharmacutical – San'at va sifat uyg‘unligi!">
+    <meta property="og:description"
+        content="Minor Art Industry Pharmacutical kompaniyasi tomonidan ishlab chiqarilgan yuqori sifatli mahsulotlar. Mahsulotlarimiz haqida batafsil ma’lumot oling!">
+    <meta property="og:image" content="https://minorart.uz/images/logo-footer.png">
+    <meta property="og:url" content="https://minorart.uz">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Minor Art Industry Pharmacutical – San'at va sifat uyg‘unligi!">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Minor Art Industry Pharmacutical – San'at va sifat uyg‘unligi!">
+    <meta name="twitter:description" content="Minor Art Industry Pharmacutical kompaniyasi tomonidan ishlab chiqarilgan yuqori sifatli mahsulotlar. Mahsulotlarimiz haqida batafsil ma’lumot oling!">
+    <meta name="twitter:image" content="https://minorart.uz/images/logo-footer.png">
+    <meta name="twitter:site" content="https://minorart.uz">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{% static 'https://minorart.uz/' %}">
+</head>
+<body>
+    <!-- navbar -->
+    <div id="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <!-- logo -->
+                {% for item in main %}
+                <div class="logo">
+                    <a href="{% url 'common:home'%}">
+                        <img src="{{ item.logo.url }}" alt="Logo">
+                    </a>
+                </div>
+                {% endfor %}
+                <!-- menu / responsive menu -->
+                <div class="menu">
+                    <ul>
+                        <li class="d-lg-none"><a href="{% url 'common:home' %}">
+                                <img src="{% static 'images/logo/logo.png' %}" alt="minor art industry pharmaceutical"></a>
+                        </li>
+                        <li><a href="{% url 'common:home' %}">Bosh sahifa</a></li>
+                        <li><a href="{% url 'common:products' %}">Mahsulotlarimiz</a></li>
+                        <li><a href="{% url 'common:about-us' %}">Biz haqimizda</a></li>
+                        <li><a href="{% url 'common:news' %}">Yangiliklar</a></li>
+                        <!-- closer -->
+                        <i class="closer-menu d-lg-none fa fa-times fa-2x"></i>
+                    </ul>
+                </div>
+                <!-- mode -->
+                <div class="mode d-flex align-items-center gap-3">
+                    <!-- opener -->
+                    <i class="opener-menu lni lni-menu lni-32 d-lg-none"></i>
+                    <!-- mode day/night -->
+                    <!-- <i class="lni lni-sun lni-32"></i> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% block content %}
+
+{% endblock %}
+
+
+    {% for item in main %}
+    <!-- footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="row align-items-end">
+                <!-- 1 -->
+                <div class="col-12 col-md-6">
+                    <a href="{% url 'common:home' %}">
+                        <img src="{{item.logo_footer.url}}" alt="minor art industry">
+                    </a>
+                    <p>{{item.company_name|safe}}</p>
+                    <p>{{item.location|safe}}</p>
+                </div>
+                <div class="col-12 col-md-6">
+                    <ul class="mt-4 mt-md-0 justify-content-md-end">
+                        <li><a href="https://telegram.org/{{item.telegram}}"><i class="fab fa-telegram"></i></a></li>
+                        <li><a href="https://instagram.com/{{item.instagram}}"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="https://instagram.com/{{item.facebook}}"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="https://instagram.com/{{item.youtube}}"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="https://instagram.com/{{item.linkedin}}"><i class="fab fa-linkedin"></i></a></li>
+                    </ul>
+                    <div class="text-md-end mt-2">
+                        <p>Barcha huquqlar himoyalangan.</p>
+                        <p>CopyRight © 2019. Minor Art Industry MCHJ.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    {% endfor %}
+
+    <!-- fancyapps carousel -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.thumbs.umd.js"></script>
+    <!-- swiper js -->
+    <script src="{% static '/libraries/swiper/swiper.js' %}"></script>
+    <!-- bootstrap js -->
+    <script src="{% static '/libraries/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- my js -->
+    <script src="{% static 'script.js' %}"></script>
+</body>
+
+</html>

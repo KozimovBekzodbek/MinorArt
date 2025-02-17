@@ -1,0 +1,25 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- about-page content -->
+    <div id="about-page-content">
+        <div class="container">
+
+            {% for item in about %}
+            <div class="box">
+                <img src="{{item.large_image.url}}" class="w-100"
+                    alt="minor art industry pharmaceutical minorart">
+                <div class="text">
+                    <p>{{item.description|safe|linebreaks}}</p>
+                </div>
+            </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+
+
+{% endblock %}
